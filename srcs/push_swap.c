@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:09:07 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/01/13 18:14:45 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/01/22 20:17:03 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	len(char *str, char c)
 	}
 }
 
+// function to free() with a safe check, for multiple variables, and a NULL
+// return to save space.
 char	*free_chungus(char **a, char **b)
 {
 	if (a && *a)
@@ -45,9 +47,9 @@ char	*free_chungus(char **a, char **b)
 	}
 	return (NULL);
 }
-// function to free() with a safe check, for multiple variables, and a NULL
-// return to save space.
 
+// Verifies the string input syntax and at the same time counts amount of 
+// numbers in the stack.
 int	fed_inspection(char *s)
 {
 	int	i;
@@ -62,31 +64,34 @@ int	fed_inspection(char *s)
 			size++;
 		i++;
 
-}
+	}
 	return (i);
 }
-// Verifies the string input syntax and at the same time counts amount of 
-// numbers in the stack.
 
-int	*list_init(char **arr, int size)
+int	*stk_init(char **arr, int size)
 {
-	int i;
-	int	*tmp_stk;
+	int		i;
+	t_stack	*tmp_stk;
 
 	i = 0;
-	tmp_stk = (int)malloc((size + 1) * sizeof(int));
 	while(i < size)
 	{
-		tmpk_stk[i] = atoi(arr[i]);
+		add_next(&tmp_stk, atol(arr[i]));
+		if (tmp_stk->value > (long)INT_MAX)
+		{
+			return (NULL)
+		}
 		i++;
 	}
 	tmp_stk[i] = NULL;
 
 }
 
+// Calls fed_inspection() to verify the argument for push_swap and count amount
+// of bytes to be allocated to create stk_a.
 int	*stack_it_up(char *s)
 {
-	int		*stack;
+	t_stack	*tmp_stk;
 	char	**tmp_arr;
 	int		i;
 	
@@ -95,14 +100,12 @@ int	*stack_it_up(char *s)
 		return (NULL);
 	tmp_arr == ft_split(s, 32);
 	if (ft_split == NULL)
-		return (stack, NULL);
-	stack = list_init(tmp_arr, fed_inspection(s));
-	if (stack == NULL)
+		return (NULL);
+	tmp_stk = list_init(tmp_arr, fed_inspection(s));
+	if (tmp_stk == NULL)
 		return (NULL);
 	
 }
-// Calls fed_inspection() to verify the argument for push_swap and count amount
-// of bytes to be allocated to create stk_a.
 
 int main(int ac, char **av)
 {
