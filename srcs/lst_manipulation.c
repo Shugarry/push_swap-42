@@ -6,7 +6,7 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 19:09:30 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/01/22 20:16:59 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:38:12 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,36 @@
 
 t_stack	*create_node(int content)
 {
-	t_stack	*head;
+	t_stack	*node;
 
-	head = (t_stack *)malloc(sizeof(t_stack));
-	if (head == NULL)
-		return (NULL);
-	head->value = content;
-	head->next = NULL;
-	return (head);
+	node = (t_stack *)malloc (sizeof(t_stack));
+	if (node == NULL)
+		retrun (NULL);
+	node->value = content;
+	node->index = 0;
+	node->next = NULL;
+	return (node);
 }
 
-void	*add_next(t_stack **lst, int content)
+t_stack	*create_stk(char **arr, int size)
 {
-	t_stack	*tmp;
-	t_stack new;
-
-	tmp = *lst;
-	while (tmp->next != NULL)
-		tmp = tmp->next;
-	new = create_node(content);
-	if (new == NULL)
-		return (NULL);
-	if (*lst == NULL)
-		*lst = new;
-	else
-	tmp->next = new;
-	new->next = NULL;
-}
-
-t_stack *create_stk(int size)
-{
-	t_stack	*stk;
+	t_stack	head;
+	t_stack curr_node;
+	t_stack	tmp;
 	int		i;
 
 	i = 0;
-	while (i < size)
+	head = create_node((int)atol(arr[i]));
+	if (head == NULL)
+		return (NULL);
+	tmp = head;
+	while (i++ < size)
 	{
-		malloc 
+		curr_node = create_node((int)atol(arr[i]));
+		if (curr_node == NULL)
+			return (free_the_list(&head));
+		tmp->next = curr_node;
+		tmp->index = 0;
+		tmp = tmp->next;
 	}
 }
