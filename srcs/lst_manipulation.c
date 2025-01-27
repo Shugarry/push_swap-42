@@ -6,7 +6,7 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 19:09:30 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/01/23 18:38:12 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/01/27 08:32:48 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ t_stack	*create_node(int content)
 
 t_stack	*create_stk(char **arr, int size)
 {
-	t_stack	head;
-	t_stack curr_node;
-	t_stack	tmp;
+	t_stack	*head;
+	t_stack *curr_node;
+	t_stack	*tmp;
 	int		i;
 
 	i = 0;
@@ -46,4 +46,5 @@ t_stack	*create_stk(char **arr, int size)
 		tmp->index = 0;
 		tmp = tmp->next;
 	}
+	return (head)
 }
