@@ -6,46 +6,22 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:09:07 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/01/22 20:17:03 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/01/28 18:23:08 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	len(char *str, char c)
+int	list_len(t_stack *stk)
 {
-	int	i;
+	int		i;
+	t_stack	*tmp
 
 	i = 0;
-	if (!str || !*str)
-		return (0);
-	if (c == '\0')
+	while (tmp != NULL)
 	{
-		while (str[i])
-			i++;
-		return (i);
+		tmp = tmp->next;
+		i++;
 	}
-	else
-	{
-		while (str[i] != c && str[i])
-			i++;
-		return (i);
-	}
-}
-
-// function to free() with a safe check, for multiple variables, and a NULL
-// return to save space.
-char	*free_chungus(char **a, char **b)
-{
-	if (a && *a)
-	{
-		free(*a);
-		*a = NULL
-	}
-	if (b && *b)
-	{
-		free(*b);
-		*b = NULL
-	}
-	return (NULL);
+	return i;
 }
 
 // Verifies the string input syntax and at the same time counts amount of 
@@ -68,43 +44,42 @@ int	fed_inspection(char *s)
 	return (i);
 }
 
-int	*stk_init(char **arr, int size)
-{
-	int		i;
-	t_stack	*tmp_stk;
-
-	i = 0;
-	while(i < size)
-	{
-		add_next(&tmp_stk, atol(arr[i]));
-		if (tmp_stk->value > (long)INT_MAX)
-		{
-			return (NULL)
-		}
-		i++;
-	}
-	tmp_stk[i] = NULL;
-
-}
-
 // Calls fed_inspection() to verify the argument for push_swap and count amount
 // of bytes to be allocated to create stk_a.
-int	*stack_it_up(char *s)
+t_stack	*stack_it_up(char *s)
 {
 	t_stack	*tmp_stk;
 	char	**tmp_arr;
 	int		i;
 	
 	i = 0;
+	size = fed_inspection(s);
 	if (size == 0)
 		return (NULL);
-	tmp_arr == ft_split(s, 32);
+	arr == ft_split(s, ' ');
 	if (ft_split == NULL)
-		return (NULL);
-	tmp_stk = list_init(tmp_arr, fed_inspection(s));
+		mis_input(NULL, NULL, arr, 1);
+	tmp_stk = create_stk(arr, size);
 	if (tmp_stk == NULL)
-		return (NULL);
-	
+		mis_input(tmp_stk, NULL, arr, 1);
+	split_free(arr);
+	return (tmp_stk);
+}
+
+void	sort(t_stack *stk_a, t_stack *stk_b)
+{
+	int stk_size;
+	int	*arr;
+
+	stk_size = list_len;
+	arr = (int *)malloc(stk_size * sizeof(int));
+	if (!arr)
+		mis_input(stk_a, stk b, NULL);
+	index
+	if (stk_size > 5)
+		radix_sort(stk_a, stk_b);
+	if (stk_size < 5)
+		small_sort(stk_a, stk_b);
 }
 
 int main(int ac, char **av)
@@ -117,4 +92,7 @@ int main(int ac, char **av)
 	if (ac != 2 || av[1] == NULL || av[1] == "")
 		return (av);
 	stk_a = stack_it_up(av[1]);
+	if (!stk_a)
+		mis_input(stk_a, NULL, NULL, 1);
+
 }

@@ -6,7 +6,7 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 19:09:30 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/01/27 08:32:48 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/01/28 17:27:54 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_stack	*create_stk(char **arr, int size)
 	t_stack *curr_node;
 	t_stack	*tmp;
 	int		i;
+	int		num;
 
 	i = 0;
 	head = create_node((int)atol(arr[i]));
@@ -39,11 +40,13 @@ t_stack	*create_stk(char **arr, int size)
 	tmp = head;
 	while (i++ < size)
 	{
-		curr_node = create_node((int)atol(arr[i]));
+		num = ft_atol(arr[i]);
+		if (INT_MAX < num || INT_MIN > num)
+			return (free_the_list(head));
+		curr_node = create_node(num);
 		if (curr_node == NULL)
-			return (free_the_list(&head));
+			return (free_the_list(head));
 		tmp->next = curr_node;
-		tmp->index = 0;
 		tmp = tmp->next;
 	}
 	return (head)
