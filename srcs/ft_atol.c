@@ -6,11 +6,11 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 18:56:58 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/01/22 18:58:50 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/01/29 19:34:22 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft.h"
+#include "../push_swap.h"
 
 int	ft_atol(const char *nptr)
 {

@@ -6,9 +6,11 @@
 /*   By: frey-gal <frey-gal@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:28:21 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/01/28 18:23:18 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/01/29 19:33:43 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../push_swap.h"
 
 void	*free_the_list(t_stack *lst)
 {
@@ -18,18 +20,18 @@ void	*free_the_list(t_stack *lst)
 	{
 		tmp = lst;
 		lst = lst->next;
-		free(tmp)
+		free(tmp);
 	}
 	return (NULL);
 }
 
-void	*split_free(char **arr)
+void	split_free(char **arr)
 {
 	int	i;
 
 	i = 0;
 	if (!arr)
-		return (0);
+		return ;
 	while (arr[i])
 	{
 		free(arr[i]);
@@ -37,7 +39,6 @@ void	*split_free(char **arr)
 		i++;
 	}
 	free(arr);
-	return (NULL);
 }
 
 //function that safely frees
@@ -48,7 +49,7 @@ void	mis_input(t_stack *stk_a, t_stack *stk_b, char **arr, int status)
 	if (stk_b)
 		free_the_list(stk_b);
 	if (arr)
-		split_free(arr);:w
-	ft_printf("Error\n");
+		split_free(arr);
+	//ft_printf("Error\n");
 	exit(status);
 }

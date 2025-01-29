@@ -1,21 +1,19 @@
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
+COMPILE = cc -Wall -Wextra -Werror
 NAME = push_swap
-SRC = srcs/push_swap.c srcs/push_swap_utils.c
+SRC = srcs/push_swap.c srcs/ft_atol.c srcs/indexing.c srcs/free_my_mans.c\
+srcs/lst_manipulation.c srcs/movers.c
 OBJ = $(SRC:.c=.o)
-
 all: $(NAME)
 
-$(NAME): $(OBJ) Makefile
-	make all -c libft
-	$(CC) $(CFLAGS) $(SRC) libft/libft.a -o $(NAME)
-
+$(NAME): Makefile push_swap.h $(OBJ)
+	make all -C libft
+	$(COMPILE) $(SRC) ./libft/libft.a -o $(NAME) 
 clean:
 	make clean -C libft
 	rm -f $(OBJ)
 
 fclean: clean
-	make fclean -c libft
+	make fclean -C libft
 	rm -f $(NAME)
 
 re: fclean all

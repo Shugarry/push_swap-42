@@ -6,11 +6,26 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 19:09:30 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/01/28 17:27:54 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/01/29 19:59:33 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft.h"
+#include "../push_swap.h"
+
+int	list_len(t_stack *stk)
+{
+	int		i;
+	t_stack	*tmp;
+
+	i = 0;
+	tmp = stk;
+	while (tmp != NULL)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	return i;
+}
 
 t_stack	*create_node(int content)
 {
@@ -18,7 +33,7 @@ t_stack	*create_node(int content)
 
 	node = (t_stack *)malloc (sizeof(t_stack));
 	if (node == NULL)
-		retrun (NULL);
+		return (NULL);
 	node->value = content;
 	node->index = 0;
 	node->next = NULL;
@@ -49,5 +64,5 @@ t_stack	*create_stk(char **arr, int size)
 		tmp->next = curr_node;
 		tmp = tmp->next;
 	}
-	return (head)
+	return (head);
 }
