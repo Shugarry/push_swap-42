@@ -6,32 +6,67 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 16:48:49 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/01/28 18:23:12 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/01/28 23:41:51 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	*bubble_sort(int *arr, int size)
 {
 	int	i;
-	int	j;
+	int	tmp;
 
 	i = 0;
-	while (i < size)
+	while (i < size - 1)
 	{
-		while (j < i)
+		if (arr[i] > arr[i + 1])
 		{
-
+			tmp = arr[i];
+			arr[i] = arr[i + 1];
+			arr[i + 1] = tmp;
+			i = 0;
 		}
+		i++;
 	}
+	return (arr)
 }
-void	indexing(t_stack *stk, int *arr)
+
+int	find_index(int value, int *arr, int len)
 {
 	int	i;
 
 	i = 0;
-	while (stk)
-		arr[i++] = stk->value;
-	arr = bubble_sort(arr, list_len(stk));
+	while (i < len)
+	{
+		if (value == arr[i])
+
+		i++;
+	}
+}
+
+void	indexing(t_stack *stk, int *arr)
+{
+	int		len;
+	t_stack *current;
+
+	len = list_len(stk);
+	current = stk;
+	while (current)
+	{
+		arr[i++] = current->value;
+		current = current->next;
+	}
+	arr = bubble_sort(arr, len);
+	if (!check_doubles(arr))
+	{
+		free(arr);
+		mis_input(stk_a, NULL, NULL);
+	}
+	current = stk;
+	while (current)
+	{
+		current->index = find_index(stk->value, arr, len);
+		current = current->next;
+	}
 
 }
 
