@@ -6,7 +6,7 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 16:48:49 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/01/29 19:34:24 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/01/30 00:45:34 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	indexing(t_stack **stk, int *arr)
 	if (!check_doubles(arr, len))
 	{
 		free(arr);
-		mis_input(*stk, NULL, NULL, 1);
+		mis_input((*stk), NULL, NULL, 1);
 	}
 	current = *stk;
 	while (current)

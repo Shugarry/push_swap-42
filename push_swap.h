@@ -6,7 +6,7 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:03:56 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/01/29 19:44:52 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/01/30 00:43:44 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,7 @@ void	*free_the_list(t_stack *lst);
 void	split_free(char **arr);
 void	mis_input(t_stack *stk_a, t_stack *stk_b, char **arr, int status);
 void	indexing(t_stack **stk, int *arr);
+void	swap(t_stack **stk);
+void	push(t_stack **stk_from, t_stack **stk_to);
+void	rotate(t_stack **stk);
 #endif

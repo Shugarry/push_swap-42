@@ -6,7 +6,7 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:09:07 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/01/29 19:58:56 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/01/30 00:48:13 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,8 @@ static t_stack	*stack_it_up(char *s)
 {
 	t_stack	*tmp_stk;
 	char	**arr;
-	int		i;
 	int		size;
 	
-	i = 0;
 	size = fed_inspection(s);
 	if (size == 0)
 		return (NULL);
@@ -52,7 +50,7 @@ static t_stack	*stack_it_up(char *s)
 	split_free(arr);
 	return (tmp_stk);
 }
-/*
+
 static void	sort(t_stack *stk_a, t_stack *stk_b)
 {
 	int stk_size;
@@ -62,10 +60,10 @@ static void	sort(t_stack *stk_a, t_stack *stk_b)
 	arr = (int *)malloc(stk_size * sizeof(int));
 	if (!arr)
 		mis_input(stk_a, stk_b, NULL, 1);
-//	index
+	indexing(&stk_a, arr);
 //	if (stk_size > 5)
 //	if (stk_size < 5)
-}*/
+}
 
 int main(int ac, char **av)
 {
@@ -82,4 +80,5 @@ int main(int ac, char **av)
 	stk_a = stack_it_up(av[1]);
 	if (!stk_a)
 		mis_input(stk_a, NULL, NULL, 1);
+	sort(stk_a, stk_b);
 }
