@@ -6,7 +6,7 @@
 /*   By: frey-gal <frey-gal@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:28:21 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/01/29 19:33:43 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/01/31 17:55:52 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	mis_input(t_stack *stk_a, t_stack *stk_b, char **arr, int status)
 		free_the_list(stk_b);
 	if (arr)
 		split_free(arr);
-	//ft_printf("Error\n");
+	if (status == 1)
+		ft_printf("Error\n");
 	exit(status);
 }

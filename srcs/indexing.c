@@ -6,7 +6,7 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 16:48:49 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/01/30 20:18:09 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/01/31 18:22:00 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,11 @@ static int	check_doubles(int *arr, int size)
 // on the integer array
 void	indexing(t_stack **stk, int *arr)
 {
-	int		len;
+	int		size;
 	int		i;
 	t_stack *current;
 
-	len = list_len(*stk);
+	size = list_len(*stk);
 	i = 0;
 	current = *stk;
 	while (current)
@@ -83,8 +83,8 @@ void	indexing(t_stack **stk, int *arr)
 		arr[i++] = current->value;
 		current = current->next;
 	}
-	arr = bubble_sort(arr, len);
-	if (!check_doubles(arr, len))
+	arr = bubble_sort(arr, size);
+	if (!check_doubles(arr, size))
 	{
 		free(arr);
 		mis_input((*stk), NULL, NULL, 1);
@@ -92,7 +92,7 @@ void	indexing(t_stack **stk, int *arr)
 	current = *stk;
 	while (current)
 	{
-		current->index = find_index(current->value, arr, len);
+		current->index = find_index(current->value, arr, size);
 		current = current->next;
 	}
 }
