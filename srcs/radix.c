@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   radix.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 19:11:45 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/01/31 18:44:54 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/02/01 03:13:30 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	max_bits(t_stack *stk)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 	int		index_max;
 	int		bits;
 
@@ -23,7 +23,7 @@ int	max_bits(t_stack *stk)
 	bits = 0;
 	while (tmp)
 	{
-		if (index_max < tmp->index) 
+		if (index_max < tmp->index)
 			index_max = tmp->index;
 		tmp = tmp->next;
 	}

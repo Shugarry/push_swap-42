@@ -6,7 +6,7 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:03:56 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/01/31 18:04:53 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/02/01 03:17:58 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ t_stack	*create_node(int content);
 t_stack	*create_stk(char **arr);
 //list_manipulation.c
 
-void	*free_the_list(t_stack *lst);
+void	*free_the_list(t_stack **lst);
 void	split_free(char **arr);
-void	mis_input(t_stack *stk_a, t_stack *stk_b, char **arr, int status);
+void	mis_input(t_stack **stk_a, t_stack **stk_b, char **arr, int status);
 //free_my_mans.c
 
 void	indexing(t_stack **stk, int *arr);
@@ -47,9 +47,13 @@ void	indexing(t_stack **stk, int *arr);
 void	swap(t_stack **stk, char *str);
 void	push(t_stack **stk_from, t_stack **stk_to, char *str);
 void	rotate(t_stack **stk, char *str);
+void	reverse_rotate(t_stack **stk, char *str);
 //movers.c
 
 int		max_bits(t_stack *stk);
 void	radix(t_stack *stk_a, t_stack *stk_b);
-//sort.c
+//radix.c
+
+void low_sort(t_stack **stk_a, t_stack **stk_b);
+//low_sort.c
 #endif

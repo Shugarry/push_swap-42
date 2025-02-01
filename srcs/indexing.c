@@ -6,7 +6,7 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 16:48:49 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/01/31 18:22:00 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/02/01 03:18:40 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	*bubble_sort(int *arr, int size)
 			tmp = arr[i];
 			arr[i] = arr[i + 1];
 			arr[i + 1] = tmp;
-			i = 0;
+			i = -1;
 		}
 		i++;
 	}
@@ -42,7 +42,7 @@ static int	find_index(int value, int *arr, int len)
 	while (i < len)
 	{
 		if (value == arr[i])
-			break;
+			break ;
 		i++;
 	}
 	return (i);
@@ -73,7 +73,7 @@ void	indexing(t_stack **stk, int *arr)
 {
 	int		size;
 	int		i;
-	t_stack *current;
+	t_stack	*current;
 
 	size = list_len(*stk);
 	i = 0;
@@ -87,7 +87,7 @@ void	indexing(t_stack **stk, int *arr)
 	if (!check_doubles(arr, size))
 	{
 		free(arr);
-		mis_input((*stk), NULL, NULL, 1);
+		mis_input(stk, NULL, NULL, 1);
 	}
 	current = *stk;
 	while (current)

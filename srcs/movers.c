@@ -6,29 +6,28 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:22:33 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/01/31 17:11:23 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/02/01 00:19:16 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void swap(t_stack **stk, char *str)
+void	swap(t_stack **stk, char *str)
 {
-    if (!*stk || !(*stk)->next)
-        return;
+	t_stack	*a;
+	t_stack	*b;
 
-    t_stack *A;
-    t_stack *B;
-
-	A = *stk;
-	B = A->next;
-    A->next = B->next;
-    B->next = A;
-    *stk = B;
+	if (!*stk || !(*stk)->next)
+		return ;
+	a = *stk;
+	b = a->next;
+	a->next = b->next;
+	b->next = a;
+	*stk = b;
 	ft_printf("%s\n", str);
 }
 
-void push(t_stack **stk_from, t_stack **stk_to, char *str)
+void	push(t_stack **stk_from, t_stack **stk_to, char *str)
 {
 	t_stack	*tmp;
 
@@ -39,21 +38,36 @@ void push(t_stack **stk_from, t_stack **stk_to, char *str)
 	ft_printf("%s\n", str);
 }
 
-void rotate(t_stack **stk, char *str)
+void	rotate(t_stack **stk, char *str)
 {
-    if (list_len(*stk) <= 1)
-        return;
+	t_stack	*first;
+	t_stack	*last;
 
-    t_stack *first;
-    t_stack *last;
-
+	if (list_len(*stk) <= 1)
+		return ;
 	first = *stk;
 	last = *stk;
-    while (last->next != NULL)
-        last = last->next;
+	while (last->next != NULL)
+		last = last->next;
+	*stk = first->next;
+	last->next = first;
+	first->next = NULL;
+	ft_printf("%s\n", str);
+}
 
-    *stk = first->next;
-    last->next = first;
-    first->next = NULL;
+void	reverse_rotate(t_stack **stk, char *str)
+{
+	t_stack *last;
+	t_stack	*second_last;
+
+	if (list_len(*stk) <= 1)
+		return ;
+	second_last = *stk;
+	while (second_last->next->next != NULL)
+		second_last = second_last->next;
+	last = second_last->next;
+	second_last->next = NULL;
+	last->next = *stk;
+	*stk = last;
 	ft_printf("%s\n", str);
 }

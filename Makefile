@@ -1,7 +1,7 @@
 COMPILE = cc -Wall -Wextra -Werror -g
 NAME = push_swap
 SRC = srcs/push_swap.c srcs/ft_atol.c srcs/indexing.c srcs/free_my_mans.c\
-srcs/lst_manipulation.c srcs/movers.c srcs/sort.c
+srcs/lst_manipulation.c srcs/movers.c srcs/radix.c srcs/low_sort.c
 OBJ = $(SRC:.c=.o)
 all: $(NAME)
 

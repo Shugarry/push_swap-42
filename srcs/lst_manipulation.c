@@ -6,7 +6,7 @@
 /*   By: frey-gal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 19:09:30 by frey-gal          #+#    #+#             */
-/*   Updated: 2025/01/31 18:18:54 by frey-gal         ###   ########.fr       */
+/*   Updated: 2025/02/01 02:30:48 by frey-gal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	list_len(t_stack *stk)
 		tmp = tmp->next;
 		i++;
 	}
-	return i;
+	return (i);
 }
 
 void	print_arr(int *arr, int size)
@@ -41,7 +41,7 @@ void	print_arr(int *arr, int size)
 
 void	print_list(t_stack *stk)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 	int		i;
 
 	tmp = stk;
@@ -69,7 +69,7 @@ t_stack	*create_node(int content)
 t_stack	*create_stk(char **arr)
 {
 	t_stack	*head;
-	t_stack *curr_node;
+	t_stack	*curr_node;
 	t_stack	*tmp;
 	int		i;
 	int		num;
@@ -83,10 +83,10 @@ t_stack	*create_stk(char **arr)
 	{
 		num = ft_atol(arr[i]);
 		if (INT_MAX < num || INT_MIN > num)
-			return (free_the_list(head));
+			return (free_the_list(&head));
 		curr_node = create_node(num);
 		if (curr_node == NULL)
-			return (free_the_list(head));
+			return (free_the_list(&head));
 		tmp->next = curr_node;
 		tmp = tmp->next;
 	}
